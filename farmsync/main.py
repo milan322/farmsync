@@ -47,7 +47,17 @@ def get_comodity_records():
     for item in data:
         item['product_id'] = item['tradingSymbol']
         item['owner_name'] = item['owner'].split("#")[1]
-        item['retailer'] = ""
+        item['retailer_name'] = "AgroPlus Inc"
+        item['crop_type'] = "Soybean"
+        item["helium_color"] = "Black"
+        item["storage_temp"] = "12"
+        item["storage_batch_id"] = "B-48967"
+        item["treatment_batch_id"] = "B-48968"
+        item["treatment_type"] = "Fungicide Trilex 2000"
+        item["unit"] = "50"
+        item["packing_type"] = "jumbo"
+        item["final_product_id"] = "P005a27X-SU34"
+        
 
     return data
     
@@ -166,6 +176,7 @@ def home():
     if 'loggedin' in session:
         # User is loggedin show them the home page
         products = get_comodity_records()
+        print("products", json.dumps(products, indent=2))
         return render_template('home.html', products=products, username=session['username'])
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))

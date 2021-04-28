@@ -74,7 +74,16 @@
      <table id="customers">
         <tr>
             <th>Product ID</th>
-            <th>Retailer</th>
+            <th>Owner</th>
+            <th>Crop Type</th>
+            <th>Helium Color</th>
+            <th>Storage Temp ( Degrees Celsius)</th>
+            <th>Storage Batch ID</th>
+            <th>Treatment Batch ID</th>
+            <th>Treatment Type</th>
+            <th>Packaging Type</th>
+            <th>Units (kg's)</th>
+            <th>Final Product ID</th>
         </tr>
         {% for item in products %}
             <tr>
@@ -86,7 +95,34 @@
                     </a>
                 </td>
                 <td>
-                    {{item.retailer}}
+                    {{item.owner_name}}
+                </td>
+                <td>
+                    {{item.crop_type}}
+                </td>
+                <td>
+                    {{item.helium_color}}
+                </td>
+                <td>
+                    {{item.storage_temp}}
+                </td>
+                <td>
+                    {{item.storage_batch_id}}
+                </td>
+                <td>
+                    {{item.treatment_batch_id}}
+                </td>
+                <td>
+                    {{item.treatment_type}}
+                </td>
+                <td>
+                    {{item.packing_type}}
+                </td>
+                <td>
+                    {{item.unit}}
+                </td>
+                <td>
+                    {{item.final_product_id}}
                 </td>
             </tr>
         {% endfor %}
