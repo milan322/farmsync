@@ -44,22 +44,24 @@ def get_comodity_records():
         return []
     
     result = []
-    for item in data:
-        item['product_id'] = item['tradingSymbol']
-        item['owner_name'] = item['owner'].split("#")[1]
-        item['retailer_name'] = "AgroPlus Inc"
-        item['crop_type'] = "Soybean"
-        item["helium_color"] = "Black"
-        item["storage_temp"] = "12"
-        item["storage_batch_id"] = "B-48967"
-        item["treatment_batch_id"] = "B-48968"
-        item["treatment_type"] = "Fungicide Trilex 2000"
-        item["unit"] = "50"
-        item["packing_type"] = "jumbo"
-        item["final_product_id"] = "P005a27X-SU34"
-        
-
-    return data
+    ignore_products = ["SEED1", "SEED2"]
+    for item1 in data:
+        if item1['tradingSymbol'] not in ignore_products:
+            item = {}
+            item['product_id'] = item1['tradingSymbol']
+            item['owner_name'] = item1['owner'].split("#")[1]
+            item['retailer_name'] = "AgroPlus Inc"
+            item['crop_type'] = "Soybean"
+            item["helium_color"] = "Black"
+            item["storage_temp"] = "12"
+            item["storage_batch_id"] = "B-48967"
+            item["treatment_batch_id"] = "B-48968"
+            item["treatment_type"] = "Fungicide Trilex 2000"
+            item["unit"] = "50"
+            item["packing_type"] = "jumbo"
+            item["final_product_id"] = "P005a27X-SU34"
+            result.append(item)
+    return result
     
 # http://localhost:5000/pythonlogin/ - this will be the login page, we need to use both GET and POST requests
 @app.route('/login/', methods=['GET', 'POST'])
