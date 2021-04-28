@@ -1,3 +1,5 @@
+{% extends 'layout.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,14 +18,14 @@
 }
 
 .allRecords {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: none;
   max-width: 500px;
   width: 500px;
-  margin: auto;
   text-align: center;
   font-family: arial;
   float: left;
   margin-left: 110px;
+  background-color: #fff
   margin-top: 60px;
 }
 
@@ -36,6 +38,7 @@
 #customers td, #customers th {
   border: 1px solid #ddd;
   padding: 8px;
+  text-align: left;
   
 }
 #customers tr:nth-child(even){background-color: #f2f2f2;}
@@ -59,8 +62,8 @@
   <p>Phone: +1 403-327-7070</p>
 </div>
 
-<div class="allRecords">
-  <h2 style="text-align:center">Products</h2>
+<div class="allRecords" style="margin-left: 70px;">
+  <h2 style="text-align:center;border-bottom:none;">Products</h2>
   <label for="search">Search Products:</label>
   <input type="text" id="search" name="search">
   <button type="button">Search</button>
@@ -90,20 +93,5 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{% endblock %}
 
