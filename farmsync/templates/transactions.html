@@ -17,10 +17,9 @@
 }
 .cardDetails {
   /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
-  max-width: 600px;
-  width: 600px;
+  max-width: 1000px;
+  width: auto;
   margin: auto;
-  text-align: center;
   font-family: arial;
   float: left;
   margin-left: 110px;
@@ -28,21 +27,22 @@
 
 .transaction {
   /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
-  max-width: 500px;
+  max-width: 1000px;
   width: auto;
   height: auto;
   margin: auto;
-  text-align: center;
+  text-align: left;
   font-family: arial;
+  margin-left: 110px;
 }
 
 .transactionTime {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-  width: 500px;
-  height: 200px;
+  /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+  max-width: 1000px;
+  width: auto;
+  height: auto;
   margin: auto;
-  text-align: center;
+  text-align: left;
   font-family: arial;
 }
 
@@ -68,22 +68,18 @@
   <p></p>
 </div>
 
-<div class="cardDetails" style="margin-left: 60px;">
-  <div class="transaction">
+<div style="cardDetails">
      <h2 style="text-align:center">Transaction Details</h2>
      {% for item in transactions %}
+    <!--<div class="transactions">-->
         <p>Transaction Id: #{{item.transactionId}}</p>
         <p>Product Id: #{{item.product_id}}</p>
         <p>Owner: #{{item.owner_name}}</p>
 	<p>Product Name: {{item.product_name}}</p>
 	<p>Retailer Name: {{item.retailer_name}}</p>
-     <!--<p class="price">$19.99</p>-->
-  </div>
-   <p style="margin-bottom: 1cm;"></p>
-  <div class="transactionTime">
-         <p>Purchase Time: {{item.timestamp}}</p>
-  </div>
-  {% endfor %}
+        <p>Purchase Time: {{item.timestamp}}</p>
+     {% endfor %}
+  <!--</div>-->
 </div>
 
 </body>

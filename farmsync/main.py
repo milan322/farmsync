@@ -77,17 +77,8 @@ def login():
             session['id'] = account['user_id']
             session['username'] = account['username']
 
-            # for Retailer page
-            #if account['role'] == 'retailer':
-                #pr_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "products.json")
-                #with open(pr_path, "r") as f:
-                #    products = json.load(f)['products']
-            products = get_comodity_records()
-            print("prodi", products)
-            return render_template('home.html', products=products, username=session['username'])
-
             # Redirect to home page
-            #return redirect(url_for('home'))
+            return redirect(url_for('home'))
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
