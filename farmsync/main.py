@@ -45,22 +45,53 @@ def get_comodity_records():
     
     result = []
     ignore_products = ["SEED1", "SEED2"]
+    default_records = [
+                        {
+                            "product_id": "P23A15x-PA46",
+                            "owner_name": "Farmer",
+                            "retailer_name": "Agriteam Services",
+                            "crop_type": "Soybean",
+                            "helium_color": "Black",
+                            "storage_temp": "12",
+                            "storage_batch_id": "B-47856",
+                            "treatment_batch_id": "B-47857",
+                            "treatment_type": "ILEVO",
+                            "unit": "100",
+                            "packing_type": "Bag",
+                            "final_product_id": "P23A15x-SU28"
+                        },
+                        {
+                            "product_id": "001A48X",
+                            "owner_name": "Farmer",
+                            "retailer_name": "Alliance Agri-Turf Bolton",
+                            "crop_type": "Soybean",
+                            "helium_color": "Dark Brown",
+                            "storage_temp": "20",
+                            "storage_batch_id": "B-47893",
+                            "treatment_batch_id": "B-47894",
+                            "treatment_type": "Inoculent Nodulator Pro",
+                            "unit": "25",
+                            "packing_type": "Pro box",
+                            "final_product_id": "001A48X-S001"
+                        }
+                    ]
     for item1 in data:
         if item1['tradingSymbol'] not in ignore_products:
             item = {}
             item['product_id'] = item1['tradingSymbol']
             item['owner_name'] = item1['owner'].split("#")[1]
-            item['retailer_name'] = "AgroPlus Inc"
+            item['retailer_name'] = "Advantage Co-op Redvers"
             item['crop_type'] = "Soybean"
-            item["helium_color"] = "Black"
-            item["storage_temp"] = "12"
+            item["helium_color"] = "Dark Brown"
+            item["storage_temp"] = "23"
             item["storage_batch_id"] = "B-48967"
             item["treatment_batch_id"] = "B-48968"
             item["treatment_type"] = "Fungicide Trilex 2000"
             item["unit"] = "50"
-            item["packing_type"] = "jumbo"
+            item["packing_type"] = "Jumbo"
             item["final_product_id"] = "P005a27X-SU34"
             result.append(item)
+    result.extend(default_records)
     return result
     
 # http://localhost:5000/pythonlogin/ - this will be the login page, we need to use both GET and POST requests
