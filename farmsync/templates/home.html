@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>{{_('Home Page')}}</h2>
+<p style="box-shadow: none;background-color: transparent;margin-left: -20px;">{{_('Welcome back, ')}} {{ username }}!</p>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  /*box-shadow: none;background-color: transparent;margin-top: -50px;*/
+}
+.h2tag {
+  padding:0 !important;
+  margin: 0 !important;
+}
+</style>
+<!--<h2 class="h2tag">Transactions:</h2>-->
+
+<div class="row" style="box-shadow: none;background-color: transparent;margin-top: -50px;margin-left:-20px">
+  <div class="column" style="background-color:#aaa;">
+    <h2>Transaction Details:</h2>
+    <p>Transaction Id: #452672</p>
+    <p>Product Id: #7867</p>
+    <p>Retailer Name: X</p>
+    <p>Time: Monday April 26th 2021, 3:15 PM</p>
+  </div>
+  <!--<div class="column" style="background-color:#bbb;">
+    <h2>Column 2</h2>
+    <p>Some text..</p>
+  </div>-->
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{
+    "products": [
+        {
+            "transaction_id": "549",
+            "product_id": "5498",
+            "product_name": "Corn Seeds",
+            "delivery_time": "March 8th 2021, 9 AM",
+            "purchase_time": "March 7th 2021, 3:10 PM",
+            "packaging_time": "March 6th 2021, 10:05 AM",
+            "shipping_time": "March 6th 2021, 5:05 PM",
+            "retailer": "Agro Plus Inc.",
+            "retailer_uname": "agroinc2",
+            "buyer": "Z",
+            "retailer_address": "Address: 3895 9 Ave N, Lethbridge, AB T1H 6G8, Canada",
+            "retailer_email": "",
+            "phone": "+1 403-327-7070"
+        },
+        {
+            "transaction_id": "580",
+            "product_id": "5457",
+            "product_name": "Maize",
+            "delivery_time": "April 9th 2021, 9 AM",
+            "purchase_time": "April 6th 2021, 12:10 PM",
+            "packaging_time": "April 7th 2021, 10:05 AM",
+            "shipping_time": "April 7th 2021, 3:05 PM",
+            "retailer": "Agriteam Services",
+            "retailer_uname": "agriteam",
+            "buyer": "Z",
+            "retailer_address": "Farm, Hafford, SK S0J 1A0, Canada",
+            "retailer_email": "",
+            "phone": "+1 306-246-4300"
+        },
+        {
+            "transaction_id": "590",
+            "product_id": "6756",
+            "product_name": "Rice",
+            "delivery_time": "January 10th 2021, 9 AM",
+            "purchase_time": "January 8th 2021, 10:20 AM",
+            "packaging_time": "January 8th 2021, 11:05 AM",
+            "shipping_time": "January 8th 2021, 3:05 PM",
+            "retailer": "Agriteam Services",
+            "retailer_uname": "agriteam",
+            "buyer": "Z",
+            "retailer_address": "Farm, Hafford, SK S0J 1A0, Canada",
+            "retailer_email": "",
+            "phone": "+1 306-246-4300"
+        }
+    ]
+}

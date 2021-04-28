@@ -1,0 +1,6 @@
+flask
+Flask-Cors
+flask-babel
+pymysql
+flask-sqlalchemy
+boto3

@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block title %}Image Upload{% endblock %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/jquery-2.1.1.min.js"></script>
+<div content="">
+<div id="upload" class="register">
+    <h1>Upload Image</h1>
+    <form action="{{ url_for('upload')}}" method="post" enctype=multipart/form-data>
+        <label for="subject">
+            <i class="fas fa-book"></i>
+        </label>
+        <input type="text" name="subject" placeholder="Crop Name" id="subject">
+        <label for="description">
+            <i class="fas fa-book"></i>
+        </label>
+        <input type="text" name="description" placeholder="Description" id="description">
+        <label for="file-picker">
+            <i class="fas fa-file-image text-warning"></i>
+        </label>
+        <input type=file name=file multiple>
+        <input type="submit" value="Upload">
+    </form>
+</div>
+</div>
+{% endblock %}

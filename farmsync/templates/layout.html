@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta charset="utf-8">
+                <title>{% block title %}{% endblock %}</title>
+                <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        </head>
+        <body class="loggedin">
+                <nav class="navtop">
+                        <div class="pone">
+                                <h1>HyperTracker</h1>
+                                <a href="{{ url_for('profile') }}"><i class="fas fa-user-circle"></i>Profile</a>
+                                <!--<a href="{{ url_for('upload') }}"><i class="fas fa-upload"></i>Upload</a>-->
+                                <!--<a href="{{ url_for('forum') }}"><i class="fas fa-user-circle"></i>Forum</a>-->
+                                <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                                <a style="margin-right: 10px;">
+                                        <select id="language">
+                                          <option value="en">English</option>
+                                          <option value="hi" {% if session['lang']=='hi' %} selected {% endif %}>Hindi</option>
+                                          <option value="te" {% if session['lang']=='te' %} selected {% endif %}>Telugu</option>
+                                          <option value="fr">French</option>
+                                        </select>
+                                </a>
+                        </div>
+                        <div class="ptwo">
+                                <img src="{{ url_for('static', filename='corteva_new.png') }}">
+                        </div>
+
+                </nav>
+                <div class="content">
+                        {% block content %}{% endblock %}
+                </div>
+        </body>
+
+
+        <script type="text/javascript">
+                $('#language').on('change', function() {
+
+                $.post( "/change_lang", { lang: this.value })
+                  .done(function( data ) {
+                        window.location = "?lang="+data
+                 });
+
+                });
+        </script>
+</html>
