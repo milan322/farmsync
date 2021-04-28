@@ -69,7 +69,7 @@
 .float-child {
     width: 35%;
     float: left;
-    padding: 20px;
+    /*padding: 20px;*/
     /*border: 2px solid red;*/
 }
 .float-child2 {
@@ -103,16 +103,16 @@ p {
 <body>
 
 <div class="float-container">
-
+<h2 style="text-align:center;">Transaction Details</h2>
   <div class="float-child">
     <div>
-      <img src="{{ url_for('static', filename='img/product.png') }}" alt="Corn Seeds" style="height: 100%;padding-top: 115px; width: 100%;">
+      <img src="{{ url_for('static', filename='img/product.png') }}" alt="Corn Seeds" style="height: 100%;padding-top: 20px; width: 100%;">
     </div>
   </div>
   
   <div class="float-child2">
-    <div style="padding-top: 25px;">
-     <h2 style="text-align:left">Transaction Details</h2>
+    <div>
+     
      <div class="card-one">
      {% for item in transactions %}
         {% if loop.index == 1 %} 
