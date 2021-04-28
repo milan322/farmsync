@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, g
 import re
 import json
 import os
+import requests
 import flask
 from flask_babel import Babel, refresh
 from farmsync.utility import app, logger, create_json_response, \
@@ -35,6 +36,21 @@ def change_lang():
    session['lang'] = request.form['lang']
    return session['lang']
 
+
+def get_comodity_records():
+    api_endpoint = "http://ec2-18-191-11-104.us-east-2.compute.amazonaws.com:3000/api/Commodity"
+    data = requests.get(api_endpoint).json()
+    if not data:
+        return []
+    
+    result = []
+    for item in data:
+        item['product_id'] = item['tradingSymbol']
+        item['owner_name'] = item['owner'].split("#")[1]
+        item['retailer'] = ""
+
+    return data
+    
 # http://localhost:5000/pythonlogin/ - this will be the login page, we need to use both GET and POST requests
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
@@ -61,14 +77,17 @@ def login():
             session['id'] = account['user_id']
             session['username'] = account['username']
 
-            if account['role'] == 'retailer':
-                pr_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "products.json")
-                with open(pr_path, "r") as f:
-                    products = json.load(f)['products']
-                return render_template('retailer.html', products=products)
+            # for Retailer page
+            #if account['role'] == 'retailer':
+                #pr_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "products.json")
+                #with open(pr_path, "r") as f:
+                #    products = json.load(f)['products']
+            products = get_comodity_records()
+            print("prodi", products)
+            return render_template('home.html', products=products, username=session['username'])
 
             # Redirect to home page
-            return redirect(url_for('home'))
+            #return redirect(url_for('home'))
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
@@ -76,9 +95,29 @@ def login():
     return render_template('index.html', msg=msg)
 
 
+def get_trade_records(product_id):
+    api_endpoint = "http://ec2-18-191-11-104.us-east-2.compute.amazonaws.com:3000/api/Trade"
+    data = requests.get(api_endpoint).json()
+    if not data:
+        return []
+    
+    result = []
+    for item in data:
+        if product_id in item['commodity']:
+            item['product_id'] = product_id
+            item['owner_name'] = item['newOwner'].split("#")[1]
+            item['product_name'] = "corn seeds" # default product name for now
+            item['retailer_name'] = "Agro Plus Inc." # default retailer_name
+            result.append(item)
+    return result
+
+
 @app.route('/products/<id>', methods=['GET'])
 def get_Products(id):
-    return render_template('products.html')
+    transactions = get_trade_records(id)
+    print(transactions)
+    #return render_template('products.html')
+    return render_template('transactions.html', transactions=transactions)
 
 
 # http://localhost:5000/python/logout - this will be the logout page
@@ -135,7 +174,8 @@ def home():
     # Check if user is loggedin
     if 'loggedin' in session:
         # User is loggedin show them the home page
-        return render_template('home.html', username=session['username'])
+        products = get_comodity_records()
+        return render_template('home.html', products=products, username=session['username'])
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 

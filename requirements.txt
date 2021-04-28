@@ -4,3 +4,4 @@ flask-babel
 pymysql
 flask-sqlalchemy
 boto3
+requests
