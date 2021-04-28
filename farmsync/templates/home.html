@@ -57,7 +57,7 @@
 </head>
 <body>
 <h2>{{_('Home Page')}}</h2>
-<p style="box-shadow: none;background-color: transparent; padding:0">{{_('Welcome back, ')}} {{ username }}!</p>
+<p style="box-shadow: none;background-color: transparent;margin-left: -20px;">{{_('Welcome back, ')}} {{ username }}!</p>
 
 <div class="retailerCard">
   <img src="{{ url_for('static', filename='img/agroplus.jpg') }}" alt="Corn Seeds" width="100%" height="40%">
@@ -74,55 +74,19 @@
      <table id="customers">
         <tr>
             <th>Product ID</th>
-            <th>Owner</th>
-            <th>Crop Type</th>
-            <th>Helium Color</th>
-            <th>Storage Temp ( Degrees Celsius)</th>
-            <th>Storage Batch ID</th>
-            <th>Treatment Batch ID</th>
-            <th>Treatment Type</th>
-            <th>Packaging Type</th>
-            <th>Units (kg's)</th>
-            <th>Final Product ID</th>
+            <th>Retailer</th>
         </tr>
         {% for item in products %}
             <tr>
                 <td>
-                    <a href="http://ec2-18-222-84-192.us-east-2.compute.amazonaws.com:5000/products/{{item.product_id}}">
+                    <a href="products/{{item.product_id}}">
                         <div style="height:100%;width:100%">
                             {{item.product_id}}
                         </div>
                     </a>
                 </td>
                 <td>
-                    {{item.owner_name}}
-                </td>
-                <td>
-                    {{item.crop_type}}
-                </td>
-                <td>
-                    {{item.helium_color}}
-                </td>
-                <td>
-                    {{item.storage_temp}}
-                </td>
-                <td>
-                    {{item.storage_batch_id}}
-                </td>
-                <td>
-                    {{item.treatment_batch_id}}
-                </td>
-                <td>
-                    {{item.treatment_type}}
-                </td>
-                <td>
-                    {{item.packing_type}}
-                </td>
-                <td>
-                    {{item.unit}}
-                </td>
-                <td>
-                    {{item.final_product_id}}
+                    {{item.retailer}}
                 </td>
             </tr>
         {% endfor %}
