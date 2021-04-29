@@ -209,8 +209,108 @@ def home():
     if 'loggedin' in session:
         # User is loggedin show them the home page
         products = get_comodity_records()
+        static_products = [
+                        {
+                            "Product_ID": "P3546",
+                            "Product_Name": "Corn",
+                            "Inventory_ID": "IN2342",
+                            "Unit_price": "2300",
+                            "Stock_Quantity": "50",
+                            "Stock_type": "Bag",
+                            "Inventory_Value": "115000",
+                            "Batch_ID": "22322",
+                            "Shipment_order_date": "23-04-2021",
+                            "Shipment_Received_date": "27-04-2021",
+                        },
+                        {
+                            "Product_ID": "P3396",
+                            "Product_Name": "Corn",
+                            "Inventory_ID": "IN8987",
+                            "Unit_price": "1890",
+                            "Stock_Quantity": "75",
+                            "Stock_type": "Probox",
+                            "Inventory_Value": "141750",
+                            "Batch_ID": "23423",
+                            "Shipment_order_date": "24-04-2021",
+                            "Shipment_Received_date": "28-04-2021",
+                        },
+                        {
+                            "Product_ID": "P3401",
+                            "Product_Name": "Corn",
+                            "Inventory_ID": "IN7766",
+                            "Unit_price": "2500",
+                            "Stock_Quantity": "100",
+                            "Stock_type": "Jumbo",
+                            "Inventory_Value": "250000",
+                            "Batch_ID": "21232",
+                            "Shipment_order_date": "25-04-2021",
+                            "Shipment_Received_date": "27-04-2021",
+                        },
+                        {
+                            "Product_ID": "27P31",
+                            "Product_Name": "Rice",
+                            "Inventory_ID": "IN6799",
+                            "Unit_price": "1200",
+                            "Stock_Quantity": "50",
+                            "Stock_type": "Bag",
+                            "Inventory_Value": "60000",
+                            "Batch_ID": "33453",
+                            "Shipment_order_date": "25-04-2021",
+                            "Shipment_Received_date": "27-04-2021",
+                        },
+                        {
+                            "Product_ID": "25P35",
+                            "Product_Name": "Rice",
+                            "Inventory_ID": "IN8787",
+                            "Unit_price": "1200",
+                            "Stock_Quantity": "100",
+                            "Stock_type": "Jumbo",
+                            "Inventory_Value": "120000",
+                            "Batch_ID": "33453",
+                            "Shipment_order_date": "23-04-2021",
+                            "Shipment_Received_date": "28-04-2021",
+                        },
+                        {
+                            "Product_ID": "P2334A",
+                            "Product_Name": "Soybean",
+                            "Inventory_ID": "IN1232",
+                            "Unit_price": "1100",
+                            "Stock_Quantity": "100",
+                            "Stock_type": "Bag",
+                            "Inventory_Value": "110000",
+                            "Batch_ID": "48967",
+                            "Shipment_order_date": "23-04-2021",
+                            "Shipment_Received_date": "28-04-2021",
+                        },
+                        {
+                            "Product_ID": "P005a27X",
+                            "Product_Name": "Soybean",
+                            "Inventory_ID": "IN2342",
+                            "Unit_price": "1800",
+                            "Stock_Quantity": "25",
+                            "Stock_type": "Jumbo",
+                            "Inventory_Value": "45000",
+                            "Batch_ID": "48967",
+                            "Shipment_order_date": "26-04-2021",
+                            "Shipment_Received_date": "28-04-2021",
+                        },
+                        {
+                            "Product_ID": "P0025A",
+                            "Product_Name": "Soybean",
+                            "Inventory_ID": "IN1432",
+                            "Unit_price": "1750",
+                            "Stock_Quantity": "50",
+                            "Stock_type": "Probox",
+                            "Inventory_Value": "87500",
+                            "Batch_ID": "47856",
+                            "Shipment_order_date": "26-04-2021",
+                            "Shipment_Received_date": "28-04-2021",
+                        }
+
+                        
+                    ]
         print("products", json.dumps(products, indent=2))
-        return render_template('home.html', products=products, username=session['username'])
+        return render_template('home.html', products=products, static_products=static_products, username=session['username'])
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 

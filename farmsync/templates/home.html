@@ -77,8 +77,9 @@
 </style>
 </head>
 <body>
-  <div class="float-container">
 
+  <div class="float-container">
+  {% if (username == 'AgroPlus') %}
   <div class="float-child">
     <div>
       <h2 style="box-shadow: none;background-color: transparent; padding:0">{{_('Welcome back, ')}} {{ username }}!</h2>
@@ -97,6 +98,29 @@
      </div>
 </div>
   </div>
+  {% endif %}
+
+  {% if (username == 'AlanStein') %}
+  <div class="float-child">
+    <div style="line-height: 1.45;">
+      <h2 style="box-shadow: none;background-color: transparent; padding:0">{{_('Welcome back, ')}} {{ username }}!</h2>
+
+      <pre>Alan Stein
+Storage Manager
+Corteva Agriscience</pre>
+    </div>
+  </div>
+  
+  <div class="float-child2">
+    <div>
+     <div class="card-one">
+        <div style="float: right;">
+          <img src="{{ url_for('static', filename='img/alan.jpg') }}" alt="Corn Seeds" height="140px" style="padding-bottom: 15px;">  
+        </div>      
+     </div>
+</div>
+  </div>
+  {% endif %}
   
 </div>
 <!-- <h2>{{_('Home Page')}}</h2> 
@@ -108,6 +132,71 @@
   <img src="{{ url_for('static', filename='img/agroplus.jpg') }}" alt="Corn Seeds" width="100%" height="40%">  
 </div>
 -->
+{% if (username == 'AgroPlus') %}
+<div class="allRecords">
+  <h2 style="text-align:center;border-bottom:none;">Products</h2>
+  <label for="search">Search Products:</label>
+  <input type="text" id="search" name="search">
+  <button type="button">Search</button>
+  <br><br>
+     <table id="customers">
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Inventory ID</th>
+            <th>Unit price</th>
+            <th>Stock Quantity</th>
+            <th>Stock type</th>
+            <th>Inventory Value</th>
+            <th>Batch ID</th>
+            <th>Shipment order date</th>
+            <th>Shipment Received date</th>
+
+        </tr>
+        {% for item in static_products %}
+            <tr>
+                <td>
+                    <a href="products/{{item.Product_ID}}">
+                        <div style="height:100%;width:100%">
+                            {{item.Product_ID}}
+                        </div>
+                    </a>
+                </td>
+                <td>
+                    {{item.Product_Name}}
+                </td>
+                <td>
+                    {{item.Inventory_ID}}
+                </td>
+                <td>
+                    {{item.Unit_price}}
+                </td>
+                <td>
+                    {{item.Stock_Quantity}}
+                </td>
+                <td>
+                    {{item.Stock_type}}
+                </td>
+                <td>
+                    {{item.Inventory_Value}}
+                </td>
+                <td>
+                    {{item.Batch_ID}}
+                </td>
+                <td>
+                    {{item.Shipment_order_date}}
+                </td>
+                <td>
+                    {{item.Shipment_Received_date}}
+                </td>
+            </tr>
+        {% endfor %}
+ </table>
+  
+</div>
+{% endif %}
+
+{% if (username == 'AlanStein') %}
 <div class="allRecords">
   <h2 style="text-align:center;border-bottom:none;">Products</h2>
   <label for="search">Search Products:</label>
@@ -172,6 +261,7 @@
  </table>
   
 </div>
+{% endif %}
 
 </body>
 </html>

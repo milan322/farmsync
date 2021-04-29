@@ -13,7 +13,7 @@ body {
   	width: 400px;
   	background-color: #ffffff;
   	box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
-  	margin: 100px auto;
+  	margin: 10px auto;
 }
 .login h1, .register h1 {
   	text-align: center;
@@ -78,7 +78,7 @@ body {
   	transition: background-color 0.2s;
 }
 .navtop {
-  	background-color: saddlebrown;
+  	background-color: darkblue;
   	height: 60px;
     width: 1000px;
     margin: 0 auto;
