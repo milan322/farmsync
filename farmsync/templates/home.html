@@ -51,6 +51,7 @@
   text-align: left;
   background-color: gray;
   color: white;
+  font-weight: 400;
 }
 
 .float-container {
@@ -156,7 +157,7 @@ Corteva Agriscience</pre>
         {% for item in static_products %}
             <tr>
                 <td>
-                    <a href="products/{{item.Product_ID}}">
+                    <a href="products/{{item.Product_ID}}" style="font-weight: 400">
                         <div style="height:100%;width:100%">
                             {{item.Product_ID}}
                         </div>
@@ -206,10 +207,10 @@ Corteva Agriscience</pre>
      <table id="customers">
         <tr>
             <th>Product ID</th>
-            <th>Owner</th>
+            <th>Current Owner</th>
             <th>Crop Type</th>
-            <th>Helium Color</th>
-            <th>Storage Temp ( Degrees Celsius)</th>
+            <th>Hilum Color</th>
+            <th>Storage Temp (Degrees Celsius)</th>
             <th>Storage Batch ID</th>
             <th>Treatment Batch ID</th>
             <th>Treatment Type</th>
@@ -220,14 +221,19 @@ Corteva Agriscience</pre>
         {% for item in products %}
             <tr>
                 <td>
-                    <a href="products/{{item.product_id}}">
+                    <a href="products/{{item.product_id}}" style="font-weight: 400">
                         <div style="height:100%;width:100%">
                             {{item.product_id}}
                         </div>
                     </a>
                 </td>
                 <td>
+                  {% if loop.index == 2 %} 
+                    Retailer
+                  {% endif%}
+                  {% if loop.index != 2 %} 
                     {{item.owner_name}}
+                  {% endif%}
                 </td>
                 <td>
                     {{item.crop_type}}

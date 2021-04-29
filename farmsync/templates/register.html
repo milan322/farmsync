@@ -36,10 +36,10 @@
 
 				
 				
-				<label for="photo">
+				<!-- <label for="photo">
 					<i class="fas fa-user-tie"></i>
 				</label>
-				<input type="file" name="photo" placeholder="Profile Picture" id="photo" style="padding: 12px;">
+				<input type="file" name="photo" placeholder="Profile Picture" id="photo" style="padding: 12px;"> -->
 				
 				<label for="country">
 					<i class="fas fa-globe-americas"></i>
@@ -86,21 +86,21 @@
 			    $(".org").hide();
 			    $(".func").hide();
 			});
-			$('input:radio[name="role"]').change(
-			    function(){
-			        if (this.value == 'ctva_emp') {
-				        $(".org").show();
-				        $(".func").hide();
-				    }
-				    else if (this.value == 'ctva_emp') {
-				        $(".func").show();
-				        $(".org").hide();
-				    }
-				    else if (this.value == 'farmer') {
-				        $(".func").hide();
-				        $(".org").hide();
-				    }
-		    });
+			// $('input:radio[name="role"]').change(
+			//     function(){
+			//         if (this.value == 'ctva_emp') {
+			// 	        $(".org").show();
+			// 	        $(".func").hide();
+			// 	    }
+			// 	    else if (this.value == 'ctva_emp') {
+			// 	        $(".func").show();
+			// 	        $(".org").hide();
+			// 	    }
+			// 	    else if (this.value == 'farmer') {
+			// 	        $(".func").hide();
+			// 	        $(".org").hide();
+			// 	    }
+		 //    });
 		</script>
 	</body>
 </html>

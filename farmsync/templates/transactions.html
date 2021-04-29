@@ -95,18 +95,18 @@ p {
 .card-one {
   padding: 25px;
   line-height: 1;
-  background-color: #dddddd;
-  color: black;  
+  background-color: lightslategray;
+  color: white;
 }
 </style>
 </head>
 <body>
 
 <div class="float-container">
-<h2 style="text-align:center;">Transaction Details</h2>
+<h2 style="text-align:center;padding-bottom: 20px;padding-top: 20px;">Transaction Details</h2>
   <div class="float-child">
     <div>
-      <img src="{{ url_for('static', filename='img/product.png') }}" alt="Corn Seeds" style="height: 100%;padding-top: 20px; width: 100%;">
+      <img src="{{ url_for('static', filename='img/download.jfif') }}" alt="Corn Seeds" style="padding-top: 20px;padding-left: 70px;">
     </div>
   </div>
   
@@ -139,34 +139,25 @@ p {
     {% if loop.index > 1 %} 
     <ul class="timeline-items">
       <li class="is-hidden timeline-item {% if loop.index % 2 == 0 %} inverted {% endif %}"> <!-- Normal block, positionned to the left -->
-        <h3>Product Id: {{item.product_id}}</h3>
+        <h3>Owner: {{item.owner_name| replace("%20", " ") | replace("R-65309", "Retailer")}}</h3>
         <hr>
-        <p>Owner: {{item.owner_name| replace("%20", " ")}}</p>
+        
         <!-- <p>Product Name: {{item.product_name}}</p> -->
         <!-- <p>Retailer Name: {{item.retailer_name}}</p> -->
 
         {% if loop.index == 2 %} 
-          <p>Batch ID: B-48967</p>
-          <p>Moisture: 13%</p>
-          <p>% pure: 95%</p>
-          <p>% Freeze damage: 1%</p>
-          <p>Temp - 23 C</p>
+          <p>Product Id: {{item.product_id}}; Batch ID: B-48967</p>
+          <p>Product details: Moisture: 13%; % pure: 95%; % Freeze damage: 1%; Temp - 23 C</p>
         {% endif %}
 
         {% if loop.index == 3 %} 
-          <p>Batch ID: B-48968</p>
-          <p>Fungicide Trilex: 2000</p>
-          <p>% Freeze damage: 1%</p>
-          <p>Temp: 30 C</p>
-          <p>Rate: 20 ml/140k</p>
+          <p>Product Id: {{item.product_id}}; Batch ID: B-48968</p>
+          <p>Product details: Fungicide Trilex: 2000; % Freeze damage: 1%; Temp: 30 C; Rate: 20 ml/140k</p>
         {% endif %}
 
         {% if loop.index == 4 %} 
-          <p>Batch ID: B-48969</p>
-          <p>Moisture: 13%</p>
-          <p>% pure: 95%</p>
-          <p>% Freeze damage: 1%</p>
-          <p>Temp: 23 C</p>
+          <p>Product Id: {{item.product_id}}; Batch ID: B-48969</p>
+          <p>Product details: Moisture: 13%; % pure: 95%; % Freeze damage: 1%; Temp: 23 C</p>
         {% endif %}
 
         <p style="word-break: break-all;">Transaction Id: {{item.transactionId}}</p>

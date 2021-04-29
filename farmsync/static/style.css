@@ -78,7 +78,7 @@ body {
   	transition: background-color 0.2s;
 }
 .navtop {
-  	background-color: darkblue;
+  	background-color: #0043e9;
   	height: 60px;
     width: 1000px;
     margin: 0 auto;
@@ -128,14 +128,15 @@ body.loggedin {
 }
 .content h2 {
   	margin: 0;
-  	padding: 25px 0;
+  	/*padding: 25px 0;*/
   	font-size: 22px;
   	border-bottom: 1px solid #e0e0e3;
   	color: #4a536e;
+    padding-bottom: 10px;
 }
 .content > p, .content > div {
   	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-  	margin: 25px 0;
+  	margin: 0px 0;
   	padding: 25px;
 	background-color: #fff;
 }
